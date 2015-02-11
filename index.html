@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
-<meta name="description" content="[download json in csv format-IE]">
-  <meta charset="utf-8">
-  		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script type="text/javascript" src="csvDownload.js"></script>
-        <link rel="stylesheet" type="text/css" href="index.css">
-  <title>JS Bin</title>
+    <meta name="csv blob download" content="[download json in csv format-IE]">
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.min.js"></script>
+    <script type="text/javascript" src="csvDownload.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>JS Bin</title>
 </head>
 <body>
-  <div class="download" id="downloadButton">
-      <span>Export to CSV</span>
-  </div>
+<!--    <div class="download" id="downloadButton">
+    <span>Export to CSV</span>
+    </div> -->
+    <ul>
+      <li ng-click="option.onClick($event, option.name)">Export to CSV(using ng-click)</li>
+    </ul>
+</div>
 </body>
 </html>

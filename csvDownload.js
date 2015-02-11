@@ -49,44 +49,7 @@ var bigData = function bigData() {
             "Vehicle28":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
             "Vehicle29":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
             "Vehicle30":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42};
-
-        var data = [{"Vehicle0":"BMW0","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle1":"BMW1","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle2":"BMW2","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle3":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle4":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle5":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-
-            "Vehicle6":"BMW1","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle7":"BMW2","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle8":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle9":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle10":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-
-            "Vehicle11":"BMW1","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle12":"BMW2","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle13":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle14":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle15":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-
-            "Vehicle16":"BMW1","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle17":"BMW2","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle18":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle19":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle20":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-
-            "Vehicle21":"BMW1","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle22":"BMW2","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle23":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle24":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle25":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-
-            "Vehicle26":"BMW1","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle27":"BMW2","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle28":"BMW3","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle29":"BMW4","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42,
-            "Vehicle30":"BMW5","Date":"30 Jul 2013 09:24 AM","Location":"Hauz Khas","Speed":42}];
-
+        var data = [];
         for (var i = 0; i <= noOfObjs; i++ ){
             data.push(obj);
         }
@@ -165,3 +128,16 @@ var download = function(data, fileName){
         }
     }
 };
+
+angular.module('app', [])
+    .run(function($rootScope){
+        var option = {name: 'Export',
+            onClick: function($event, name){
+                var CSV = jsonToCsv(bigData(), true);
+                if(CSV === '')
+                    return;
+                download(CSV, "muchData");
+            }
+        };
+        $rootScope.option = option;
+    });
