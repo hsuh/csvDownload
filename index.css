@@ -1,0 +1,11 @@
+.download {
+    cursor: pointer;
+    z-index: 1;
+}
+.download:hover {
+    background-color: #98BF47;
+    color: white;
+    font-weight: 600;
+    border: solid #444952 2px;
+    z-index: 1;
+}
